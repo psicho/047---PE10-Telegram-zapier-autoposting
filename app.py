@@ -50,7 +50,7 @@ def generate_content(topic: str):
 
     try:
         # Генерация заголовка для статьи
-        title = openai.ChatCompletion.create(
+        title = openai.chat.completions.create(
             model="gpt-4o-mini",  # Используем модель GPT-4o-mini
             messages=[{
                 "role": "user", 
@@ -62,7 +62,7 @@ def generate_content(topic: str):
         ).choices[0].message.content.strip()
 
         # Генерация мета-описания для статьи
-        meta_description = openai.ChatCompletion.create(
+        meta_description = openai.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{
                 "role": "user", 
@@ -74,7 +74,7 @@ def generate_content(topic: str):
         ).choices[0].message.content.strip()
 
         # Генерация полного контента статьи
-        post_content = openai.ChatCompletion.create(
+        post_content = openai.chat.completions.create(
             model="gpt-4o-mini",
             messages=[{
                 "role": "user", 
